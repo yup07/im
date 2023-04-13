@@ -17,7 +17,7 @@ func TestFindOne(t *testing.T) {
 	client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
 		Username: "admin",
 		Password: "123456",
-	}).ApplyURI("mongodb://47.115.205.241:27017"))
+	}).ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -35,7 +35,7 @@ func TestFind(t *testing.T) {
 	client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
 		Username: "admin",
 		Password: "123456",
-	}).ApplyURI("mongodb://47.115.205.241:27017"))
+	}).ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		t.Fatal(err)
 	}

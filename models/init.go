@@ -18,7 +18,7 @@ func InitMongo() *mongo.Database {
 	client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
 		Username: "admin",
 		Password: "123456",
-	}).ApplyURI("mongodb://47.115.205.241:27017"))
+	}).ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		log.Fatal("mongo 链接错误", err)
 		return nil
@@ -28,7 +28,7 @@ func InitMongo() *mongo.Database {
 }
 func InitRedis() *redis.Client {
 	return redis.NewClient(&redis.Options{
-		Addr:     "47.115.205.241:6379",
+		Addr:     "localhost:6379",
 		Password: "123456",
 	})
 

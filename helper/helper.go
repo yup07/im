@@ -7,6 +7,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/jordan-wright/email"
 	uuid "github.com/satori/go.uuid"
+	"im/define"
 	"math/rand"
 	"net/smtp"
 	"strconv"
@@ -74,7 +75,7 @@ func SendCode(toUserEmail, code string) error {
 	e.Subject = "验证码已发送，请查收"
 	e.HTML = []byte("您的验证码：<b>" + code + "</b>")
 	return e.SendWithTLS("smtp.163.com:465",
-		smtp.PlainAuth("", "wy1833244331@163.com", "CKTFFQYUGJMQASWS", "smtp.163.com"),
+		smtp.PlainAuth("", "wy1833244331@163.com", define.MailPassword, "smtp.163.com"),
 		&tls.Config{InsecureSkipVerify: true, ServerName: "smtp.163.com"})
 }
 
